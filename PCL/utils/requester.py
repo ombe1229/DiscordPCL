@@ -1,13 +1,7 @@
 from typing import Any
 import aiohttp
 from aiohttp.typedefs import StrOrURL
-from attr import dataclass
-
-
-@dataclass
-class Response:
-    status: int
-    body: Any
+from PCL.utils.objects import Response
 
 
 class Requester:
