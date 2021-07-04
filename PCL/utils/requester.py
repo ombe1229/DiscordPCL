@@ -11,7 +11,7 @@ class Response:
 
 
 class Requester:
-    __base_url = "https://discord.com/api/v8/"
+    __base_url = "https://discord.com/api/v9/"
     __token = token
 
     async def request(self, method: str, url: str, **kwargs: Any):
