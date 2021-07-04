@@ -17,7 +17,7 @@ class Requester:
 
     async def request(self, method: str, url: StrOrURL, **kwargs: Any):
         async with aiohttp.ClientSession(headers=self.headers) as cs:
-            async with cs.request(method, self.__base_url + url, **kwargs) as r:
+            async with cs.request(method, self.base_url + url, **kwargs) as r:
                 return Response(r.status, await r.json())
 
     async def get(self, url: StrOrURL, **kwargs: Any):
