@@ -1,4 +1,4 @@
-from PCL.utils.objects import Guild, GuildInfo
+from PCL.utils.objects import Channel, Guild, GuildInfo
 from typing import Iterator, Optional
 from PCL.utils.requester import Requester
 
@@ -37,6 +37,7 @@ class DiscordRequester:
             guild["owner_id"],
             guild["region"],
             guild["roles"],
+            guild.get("approximate_member_count"),
         )
 
     async def get_guild_channels(self, guild_id: int):
