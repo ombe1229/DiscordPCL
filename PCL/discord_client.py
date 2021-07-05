@@ -1,5 +1,5 @@
 from PCL.utils.objects import Guild, GuildInfo
-from typing import Optional
+from typing import Coroutine, Optional
 from PCL.utils.requester import Requester
 
 
@@ -9,7 +9,7 @@ class DiscordRequester:
             "https://discord.com/api/v9/", {"Authorization": token}
         )
 
-    async def get_user_guilds(self):
+    async def get_user_guilds(self) -> Coroutine[Guild]:
         response = await self.requester.get("users/@me/guilds")
         for guild in response.body:
             yield Guild(
