@@ -52,7 +52,6 @@ class Channel:
 
     id: str
     type: int
-    guild_id: int
     name: str
     nsfw: bool
 
