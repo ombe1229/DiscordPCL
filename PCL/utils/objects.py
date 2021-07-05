@@ -85,3 +85,4 @@ class GuildInfo:
     owner_id: int
     region: str
     roles: List[Role]
+    approximate_member_count: Optional[int]
