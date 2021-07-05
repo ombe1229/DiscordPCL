@@ -58,9 +58,31 @@ class Channel:
 
 
 @dataclass
+class Emoji:
+    name: str
+    roles: List[Role]
+    id: int
+    animated: bool
+    available: bool
+
+
+@dataclass
 class Guild:
     id: int
     name: str
     icon: str
     owner: bool
     permissions: int
+
+
+@dataclass
+class GuildInfo:
+    id: int
+    name: str
+    icon: str
+    description: str
+    emojis: List[Emoji]
+    banner: str
+    owner_id: int
+    region: str
+    roles: List[Role]
