@@ -62,7 +62,5 @@ class Guild:
     id: int
     name: str
     icon: str
-    owner_id: int
-    member_count: Optional[int]
-    members: Optional[List[GuildMember]]
-    channels: Optional[List[Channel]]
+    owner: bool
+    permissions: int

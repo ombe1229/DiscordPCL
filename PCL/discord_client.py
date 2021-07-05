@@ -1,3 +1,4 @@
+from PCL.utils.objects import Guild
 from typing import Optional
 from PCL.utils.requester import Requester
 
@@ -9,7 +10,15 @@ class DiscordRequester:
         )
 
     async def get_user_guilds(self):
-        return await self.requester.get("users/@me/guilds")
+        response = await self.requester.get("users/@me/guilds")
+        for guild in response.body:
+            yield Guild(
+                guild["id"],
+                guild["name"],
+                guild["icon"],
+                guild["owner"],
+                guild["permissions"],
+            )
 
     async def get_guild(self, guild_id: int, with_counts: Optional[bool] = False):
         return await self.requester.get(
