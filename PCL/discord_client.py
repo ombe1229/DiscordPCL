@@ -40,5 +40,12 @@ class DiscordRequester:
             guild.get("approximate_member_count"),
         )
 
-    async def get_guild_channels(self, guild_id: int):
-        return await self.requester.get(f"guilds/{guild_id}/channels")
+    async def get_guild_channels(self, guild_id: int) -> Iterator[Channel]:
+        response = await self.requester.get(f"guilds/{guild_id}/channels")
+        for channel in response.body:
+            yield Channel(
+                channel["id"],
+                channel["type"],
+                channel["name"],
+                channel["nsfw"],
+            )
