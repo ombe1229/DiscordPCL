@@ -22,8 +22,8 @@ class User:
 class Role:
     id: str
     name: str
-    color: int
     permissions: str
+    color: int
     managed: bool
 
 
