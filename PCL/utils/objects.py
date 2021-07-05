@@ -10,7 +10,7 @@ class Response:
 
 @dataclass
 class User:
-    id: int
+    id: str
     username: str
     discriminator: str
     avatar: str
@@ -20,7 +20,7 @@ class User:
 
 @dataclass
 class Role:
-    id: int
+    id: str
     name: str
     color: int
     permissions: str
@@ -50,7 +50,7 @@ class Channel:
      - GUILD_STAGE_VOICE: 13
     """
 
-    id: int
+    id: str
     type: int
     guild_id: int
     name: str
@@ -61,14 +61,14 @@ class Channel:
 class Emoji:
     name: str
     roles: List[Role]
-    id: int
+    id: str
     animated: bool
     available: bool
 
 
 @dataclass
 class Guild:
-    id: int
+    id: str
     name: str
     icon: str
     owner: bool
